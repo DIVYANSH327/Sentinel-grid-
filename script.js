@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // REAL SENTINEL GRID VISUAL GALLERY CONFIGURATION
+  // SENTINEL GRID VISUAL GALLERY COMPONENT
   // ==========================================================================
-  const galleryImages = [
+  const defaultGalleryImages = [
     {
       id: "live-grid-feed",
       src: "/screenshots/live-grid.jpg",
@@ -144,13 +144,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  // Retrieve user-uploaded images from localStorage if any
+  let uploadedOverrides = {};
+  try {
+    const saved = localStorage.getItem('sentinel_gallery_uploads');
+    if (saved) uploadedOverrides = JSON.parse(saved);
+  } catch (e) {
+    console.warn('LocalStorage unavailable', e);
+  }
+
+  const galleryImages = defaultGalleryImages.map(item => {
+    if (uploadedOverrides[item.id]) {
+      return { ...item, src: uploadedOverrides[item.id], isUploaded: true };
+    }
+    return item;
+  });
+
   const galleryContainer = document.getElementById('gallery-container');
   const categoryTabBtns = document.querySelectorAll('.gallery-tab-btn');
+  const fileInput = document.getElementById('gallery-file-input');
   let currentCategory = 'ALL';
   let currentLightboxIndex = 0;
   let activeFilteredImages = [...galleryImages];
 
-  // Render gallery cards
+  // Render gallery cards with image validation
   function renderGallery(filter = 'ALL') {
     if (!galleryContainer) return;
     galleryContainer.innerHTML = '';
@@ -173,14 +190,18 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = `gallery-card ${item.featured ? 'featured' : ''}`;
       card.setAttribute('data-category', item.category);
 
-      // SVG placeholder background for preview
-      const cardPattern = `
-        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 40%, #15223e 0%, #080e1c 100%); padding: 24px; text-align: center; color: #fff;">
-          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(0, 113, 227, 0.2); border: 1px solid rgba(0, 113, 227, 0.4); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; color: #70a6ff;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      const emptyStateHTML = `
+        <div class="gallery-card-empty-state" id="empty-${item.id}">
+          <span class="empty-state-badge">IMAGE NOT AVAILABLE</span>
+          <div class="empty-state-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
           </div>
-          <span style="font-size: 13px; font-weight: 700; color: #f1f5f9; letter-spacing: -0.01em;">${item.title}</span>
-          <span style="font-family: var(--font-mono); font-size: 10px; color: #64748b; margin-top: 4px;">AUTHENTIC PLATFORM RECORD</span>
+          <div class="empty-state-text">No local screenshot found in repository</div>
+          <label class="empty-state-upload-trigger">
+            <input type="file" accept="image/*" style="display:none;" data-target-id="${item.id}" class="card-inline-upload">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>+ Upload Screenshot</span>
+          </label>
         </div>
       `;
 
@@ -190,10 +211,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="gallery-card-zoom-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
           </div>
-          <img src="${item.src}" alt="${item.title}" class="gallery-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <div style="display: none; width: 100%; height: 100%;">
-            ${cardPattern}
-          </div>
+          <img src="${item.src}" alt="${item.title}" class="gallery-card-img" id="img-${item.id}" loading="lazy">
+          ${emptyStateHTML}
         </div>
         <div class="gallery-card-content">
           <div>
@@ -202,16 +221,91 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="gallery-card-footer">
             <span>${item.technicalNote}</span>
-            <span style="color: var(--apple-blue); font-weight: 600;">Inspect Record →</span>
+            <span style="color: var(--apple-blue); font-weight: 600;" class="card-action-label">Inspect Record →</span>
           </div>
         </div>
       `;
 
-      card.addEventListener('click', () => {
-        openLightbox(index);
+      const imgEl = card.querySelector(`#img-${item.id}`);
+      const emptyEl = card.querySelector(`#empty-${item.id}`);
+      const zoomEl = card.querySelector('.gallery-card-zoom-icon');
+
+      // Check if image loads successfully or fails
+      if (imgEl && emptyEl) {
+        imgEl.onload = function() {
+          imgEl.style.display = 'block';
+          emptyEl.style.display = 'none';
+          if (zoomEl) zoomEl.style.display = 'flex';
+          item.hasLoaded = true;
+        };
+
+        imgEl.onerror = function() {
+          imgEl.style.display = 'none';
+          emptyEl.style.display = 'flex';
+          if (zoomEl) zoomEl.style.display = 'none';
+          item.hasLoaded = false;
+        };
+      }
+
+      // Open lightbox on card click (only if image has loaded)
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-inline-upload') || e.target.closest('.empty-state-upload-trigger')) {
+          return;
+        }
+        if (item.hasLoaded) {
+          openLightbox(index);
+        }
       });
 
       galleryContainer.appendChild(card);
+    });
+
+    // Attach card inline upload handlers
+    document.querySelectorAll('.card-inline-upload').forEach(input => {
+      input.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        const targetId = this.getAttribute('data-target-id');
+        if (file && targetId) {
+          handleImageUpload(file, targetId);
+        }
+      });
+    });
+  }
+
+  // Handle image upload from + icon
+  function handleImageUpload(file, specificId = null) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const dataUrl = event.target.result;
+      const targetId = specificId || (activeFilteredImages[0] ? activeFilteredImages[0].id : defaultGalleryImages[0].id);
+      
+      uploadedOverrides[targetId] = dataUrl;
+      try {
+        localStorage.setItem('sentinel_gallery_uploads', JSON.stringify(uploadedOverrides));
+      } catch (err) {
+        console.warn('Failed to save to localStorage', err);
+      }
+
+      // Update gallery item in memory
+      const item = galleryImages.find(g => g.id === targetId);
+      if (item) {
+        item.src = dataUrl;
+        item.hasLoaded = true;
+      }
+
+      renderGallery(currentCategory);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // Global + upload button listener
+  if (fileInput) {
+    fileInput.addEventListener('change', (e) => {
+      const files = Array.from(e.target.files);
+      files.forEach((file, idx) => {
+        const targetId = defaultGalleryImages[idx % defaultGalleryImages.length].id;
+        handleImageUpload(file, targetId);
+      });
     });
   }
 
@@ -267,9 +361,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxImg) {
       lightboxImg.src = item.src;
       lightboxImg.alt = item.title;
-      lightboxImg.onerror = function() {
-        this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><rect width="800" height="500" fill="%230b1325"/><text x="400" y="240" fill="%2370a6ff" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">' + encodeURIComponent(item.title) + '</text><text x="400" y="280" fill="%2364748b" font-family="monospace" font-size="13" text-anchor="middle">AUTHENTIC SENTINEL GRID PLATFORM CAPTURE</text></svg>';
-      };
     }
   }
 
