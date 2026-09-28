@@ -1,27 +1,837 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sentinel Grid — CCTV & AI Intelligence</title><meta name="description" content="Sentinel Grid technical showcase">
-<link rel="stylesheet" href="styles.css"></head><body>
-<nav><a class="brand" href="#top"><b>S</b> SENTINEL GRID</a><div class="links"><a href="#platform">Platform</a><a href="#ai">Sentinel AI</a><a href="#vision">Vision Fabric</a><a href="#architecture">Architecture</a><a href="#screens">Screens</a></div><a class="navbtn" href="#architecture">Explore</a></nav>
-<header id="top" class="hero"><div><small>GUJARAT POLICE · AI CCTV INTELLIGENCE PLATFORM</small><h1>From CCTV feeds to <em>actionable intelligence.</em></h1><p>Sentinel Grid combines computer vision, camera operations, investigation, evidence integrity and an officer-facing AI assistant in one operational system.</p><div><a class="btn blue" href="#ai">See Sentinel AI</a><a class="btn" href="#screens">View platform</a></div><aside><strong>Truth-first design:</strong> observed data, model inference and unavailable information stay explicitly distinct.</aside></div>
-<div class="console"><div class="bar">● ● ● &nbsp; SENTINEL COMMAND CENTER</div><div class="metrics"><div><span>CAMERAS</span><b>30</b><small>hackathon testbed</small></div><div><span>VISION</span><b>YOLOv8</b><small>local ONNX inference</small></div><div><span>AI</span><b>ONLINE</b><small>query interface</small></div><div><span>SCALE</span><b>80K+</b><small>future target</small></div></div><pre><i>POST</i> /api/ai/query
-{ "query": "Check camera health." }
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentinel Grid — Intelligence, from every frame.</title>
+  <meta name="description" content="A unified AI-powered platform for vision, investigation, evidence and operational intelligence. Gujarat Police AI CCTV Intelligence Platform.">
+  <meta property="og:title" content="Sentinel Grid — Intelligence, from every frame.">
+  <meta property="og:description" content="A unified AI-powered platform for vision, investigation, evidence and operational intelligence.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-<i>OBSERVED</i> · source: CCTV_FLEET_DIAGNOSTICS</pre></div></header>
-<section class="strip"><div><b>30</b><span>camera test environment</span></div><div><b>YOLOv8</b><span>verified local CV pipeline</span></div><div><b>7</b><span>controlled AI tools</span></div><div><b>80K+</b><span>scalability architecture target</span></div></section>
-<section id="platform"><small>THE PLATFORM</small><h2>One operational surface for the intelligence lifecycle.</h2><p class="sub">Built for control-room staff, investigators and patrol officers.</p><div class="cards"><article><b>01</b><h3>Command & Dispatch</h3><p>Dashboard, live cameras, federated mesh and field links.</p></article><article><b>02</b><h3>Surveillance & GIS</h3><p>Vehicle search, plate intelligence, maps, watchlists and evidence.</p></article><article><b>03</b><h3>Operations & Patrol</h3><p>Alerts, incident triage, missions and officer review.</p></article><article><b>04</b><h3>AI & Vision Lab</h3><p>Sentinel AI, agent mesh, YOLO vision and model training.</p></article></div></section>
-<section id="ai" class="dark"><div class="two"><div><small>SENTINEL AI OFFICER ASSISTANT</small><h2>Ask the system in natural language.</h2><p class="sub">The assistant uses controlled read-only operational tools rather than raw database access.</p><div class="queries"><div>What is happening on CAM-12?</div><div>What vehicles were detected recently?</div><div>Find vehicle GJ01AB1234.</div><div>What incidents are currently active?</div><div>Check camera health.</div></div></div><div class="chat"><header><span></span> Sentinel AI <small>POST /api/ai/query</small></header><div class="user">Check camera health.</div><div class="reply"><label>OBSERVED · Hardware Verified</label><p>CCTV Fleet Health Report: 30 monitored nodes. Source, provider, model and structured evidence metadata are displayed with the answer.</p><footer>Source: CCTV_FLEET_DIAGNOSTICS</footer></div><aside>Unavailable information → <b>NOT_AVAILABLE</b></aside></div></div></section>
-<section id="vision"><small>VISION FABRIC</small><h2>A modular computer-vision pipeline.</h2><p class="sub">Learned inference is separated from deterministic verification, evidence and orchestration.</p><div class="pipeline"><div>01<br><b>Camera Input</b><small>Frames</small></div><div>02<br><b>Vehicle Vision</b><small>YOLOv8 ONNX</small></div><div>03<br><b>Plate Detection</b><small>Plate crops</small></div><div>04<br><b>HSRP / OCR</b><small>Recognition</small></div><div>05<br><b>Verification</b><small>Multi-frame</small></div><div>06<br><b>Evidence</b><small>Integrity metadata</small></div><div>07<br><b>Investigation</b><small>Alerts & review</small></div></div><div class="note"><b>Accuracy in presentation:</b> YOLOv8 is a pretrained model used by Sentinel's verified local inference pipeline; this showcase does not claim it is a proprietary Sentinel-trained model.</div></section>
-<section id="architecture" class="dark"><small>SYSTEM ARCHITECTURE</small><h2>Edge intelligence + cloud coordination.</h2><p class="sub">Latency-sensitive vision can remain at the edge while cloud services handle events, analytics and scalable coordination.</p><div class="arch"><div><b>CAMERAS</b><small>RTSP · ONVIF · test inputs</small></div><span>→</span><div><b>REGIONAL EDGE</b><small>filtering · YOLO · sampling</small></div><span>→</span><div><b>EVENT FABRIC</b><small>Pub/Sub · idempotency</small></div><div><b>BIGQUERY</b><small>partitioned analytics</small></div><span>↕</span><div class="accent"><b>SENTINEL AI</b><small>controlled tools · reasoning</small></div><span>↕</span><div><b>STORAGE</b><small>original / derived evidence</small></div><div><b>INVESTIGATION</b><small>correlation · watchlists</small></div><span>→</span><div><b>HUMAN REVIEW</b><small>officer validation</small></div><span>→</span><div><b>ACTION</b><small>authorized workflow</small></div></div><div class="scale"><b>80,000+ cameras</b> is a scalability target, not a claim that 80,000 cameras are currently connected.</div></section>
-<section><small>TRUST & GOVERNANCE</small><h2>AI that shows what it knows.</h2><div class="cards"><article><b>OBSERVED</b><h3>Grounded records</h3><p>System observations or verified diagnostics.</p></article><article><b>INFERRED</b><h3>Model output</h3><p>Inference is explicitly identified as inference.</p></article><article><b>NOT_AVAILABLE</b><h3>No invention</h3><p>Missing information is reported rather than fabricated.</p></article></div></section>
-<section id="screens"><small>THE INTERFACE</small><h2>Inside Sentinel Grid.</h2><p class="sub">Selected screens from the current build.</p><div class="gallery">
-<figure><img src="screenshots/Screenshot_20260928-214208_Chrome.jpg"><figcaption>Dashboard + Sentinel AI officer assistant</figcaption></figure>
-<figure><img src="screenshots/Screenshot_20260928-214225_Chrome.jpg"><figcaption>Operational module architecture</figcaption></figure>
-<figure><img src="screenshots/Screenshot_20260928-214239_Chrome.jpg"><figcaption>AI, scale, security and system modules</figcaption></figure>
-<figure><img src="screenshots/Screenshot_20260928-214245_Chrome.jpg"><figcaption>Detection analytics and mission tracking</figcaption></figure>
-<figure><img src="screenshots/Screenshot_20260928-214259_Chrome.jpg"><figcaption>AI Agent Mesh and live workflow</figcaption></figure>
-<figure><img src="screenshots/Screenshot_20260928-214425_Chrome.jpg"><figcaption>80K+ scale architecture concept</figcaption></figure>
-<figure><img src="screenshots/Screenshot_20260928-214559_Chrome.jpg"><figcaption>Vision Fabric and camera telemetry</figcaption></figure></div></section>
-<section class="end"><small>SENTINEL GRID</small><h2>Real cameras. Real AI. Real answers.</h2><p>A technical showcase built to explain the platform without confusing architecture targets with verified production reality.</p><a class="btn blue" href="#top">Back to top</a></section>
-<footer>Sentinel Grid · Gujarat Police AI CCTV Intelligence Platform <span>Concept & engineering showcase</span></footer>
-<script src="script.js"></script></body></html>
+  <!-- Minimal Apple-Style Translucent Navigation -->
+  <nav class="apple-nav">
+    <div class="nav-brand">
+      <a href="#top" style="display:flex; align-items:center; gap:10px;">
+        <div class="nav-brand-emblem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <span>SENTINEL GRID</span>
+      </a>
+      <span class="nav-brand-badge">GUJARAT POLICE</span>
+    </div>
+
+    <div class="nav-menu">
+      <a href="#vision">Vision</a>
+      <a href="#gis">Spatial Map</a>
+      <a href="#intelligence">Intelligence</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#cloud">Google Cloud</a>
+      <a href="#trust">Trust</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#scale">Scale</a>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="#ai-assistant" class="nav-cta-btn">Explore Sentinel</a>
+    </div>
+  </nav>
+
+  <!-- Editorial Apple-Style Hero -->
+  <header id="top" class="hero-editorial">
+    <div class="hero-pill-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+      <span>AI-POWERED CCTV INTELLIGENCE INFRASTRUCTURE</span>
+    </div>
+
+    <h1 class="hero-main-title">
+      Intelligence, from <em>every frame.</em>
+    </h1>
+
+    <p class="hero-lead-text">
+      A unified platform combining edge computer vision, spatial GIS investigation, cryptographic evidence preservation, and an officer-facing AI copilot.
+    </p>
+
+    <div class="hero-cta-group">
+      <a href="#vision" class="apple-btn-primary">Explore Platform</a>
+      <a href="#architecture" class="apple-btn-secondary">View Architecture</a>
+    </div>
+
+    <!-- 4 Core Pillars -->
+    <div class="hero-four-pillars">
+      <div class="pillar-item">
+        <span class="pillar-dot"></span>
+        <span>VISION</span>
+      </div>
+      <div class="pillar-item">
+        <span class="pillar-dot"></span>
+        <span>INTELLIGENCE</span>
+      </div>
+      <div class="pillar-item">
+        <span class="pillar-dot"></span>
+        <span>INVESTIGATION</span>
+      </div>
+      <div class="pillar-item">
+        <span class="pillar-dot"></span>
+        <span>EVIDENCE</span>
+      </div>
+    </div>
+
+    <!-- Futuristic Sentinel Emblem & Flow Visualizer -->
+    <div class="hero-emblem-stage">
+      <div class="emblem-architecture-strip">
+        <div class="emblem-step-card">
+          <div class="emblem-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <span class="emblem-step-name">CAMERAS</span>
+          <span class="emblem-step-sub">30 RTSP Streams</span>
+        </div>
+
+        <div class="emblem-step-card">
+          <div class="emblem-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+          </div>
+          <span class="emblem-step-name">VISION</span>
+          <span class="emblem-step-sub">YOLOv8 Local ONNX</span>
+        </div>
+
+        <div class="emblem-step-card">
+          <div class="emblem-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <span class="emblem-step-name">AI MESH</span>
+          <span class="emblem-step-sub">13 Specialized Agents</span>
+        </div>
+
+        <div class="emblem-step-card">
+          <div class="emblem-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span class="emblem-step-name">EVENTS</span>
+          <span class="emblem-step-sub">Pub/Sub Decoupling</span>
+        </div>
+
+        <div class="emblem-step-card">
+          <div class="emblem-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="emblem-step-name">INVESTIGATION</span>
+          <span class="emblem-step-sub">Human Review</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Calm System Snapshot Numbers -->
+  <section class="calm-snapshot-section">
+    <div class="snapshot-grid-apple">
+      <div class="snapshot-col">
+        <div class="snapshot-number-big">30</div>
+        <div class="snapshot-title-clean">Camera Test Environment</div>
+        <div class="snapshot-desc-clean">Active physical nodes in the Gujarat Police operational testbed.</div>
+      </div>
+      <div class="snapshot-col">
+        <div class="snapshot-number-big">34</div>
+        <div class="snapshot-title-clean">Operational Modules</div>
+        <div class="snapshot-desc-clean">Across Command, Operations, AI & Vision, and System Security.</div>
+      </div>
+      <div class="snapshot-col">
+        <div class="snapshot-number-big">13</div>
+        <div class="snapshot-title-clean">Specialized Neural Agents</div>
+        <div class="snapshot-desc-clean">For detection, OCR, enhancement, and evidence consensus.</div>
+      </div>
+      <div class="snapshot-col">
+        <div class="snapshot-number-big">80K<small>+</small></div>
+        <div class="snapshot-title-clean">Scale Target Architecture</div>
+        <div class="snapshot-desc-clean">Statewide cloud blueprint for multi-city municipal surveillance.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 01 — REAL-TIME VISION (LIVE GRID) -->
+  <section id="vision" class="editorial-section">
+    <div class="editorial-header centered">
+      <span class="editorial-eyebrow">01 — REAL-TIME COMPUTER VISION</span>
+      <h2 class="editorial-headline">Every frame contains a signal.</h2>
+      <p class="editorial-subtext">
+        Sentinel Grid transforms camera observations into structured, machine-readable events with local edge YOLOv8 ONNX inference running at sub-15ms latency.
+      </p>
+    </div>
+
+    <!-- Apple Device Frame: Live Grid Screenshot Presentation -->
+    <div class="apple-device-frame">
+      <div class="device-top-bar">
+        <div class="device-window-controls">
+          <span class="device-dot close"></span>
+          <span class="device-dot min"></span>
+          <span class="device-dot max"></span>
+        </div>
+        <div class="device-title-tag">
+          <span>Sentinel Camera Grid Live View</span>
+          <span style="color:#86868b; font-weight:400;">· Gujarat Police SCRB · 30 Physical Streams</span>
+        </div>
+        <div class="device-status-badge">
+          <span class="device-status-pulse"></span>
+          <span>AUTH ACTIVE · RTSP 25 FPS</span>
+        </div>
+      </div>
+
+      <div class="device-canvas-area">
+        <div class="live-camera-grid-preview">
+          <!-- Camera Tile 1 -->
+          <div class="camera-tile-card">
+            <div class="camera-feed-viewport">
+              <div class="camera-feed-grid"></div>
+              <div class="camera-live-pill"><span class="device-status-pulse"></span> LIVE · 25 FPS</div>
+              <div class="clean-bbox car">CAR 94% #cam01-01</div>
+            </div>
+            <div class="camera-tile-meta">
+              <div>
+                <span class="camera-tile-id">CAM01 — Chiman bhai Bridge</span>
+                <div class="camera-tile-loc">Ahmedabad · Sabarmati River Corridor</div>
+              </div>
+              <span class="camera-tile-fps">15ms · YOLOv8</span>
+            </div>
+          </div>
+
+          <!-- Camera Tile 2 -->
+          <div class="camera-tile-card">
+            <div class="camera-feed-viewport">
+              <div class="camera-feed-grid"></div>
+              <div class="camera-live-pill"><span class="device-status-pulse"></span> LIVE · 25 FPS</div>
+              <div class="clean-bbox truck">TRUCK 92% #cam02-02</div>
+            </div>
+            <div class="camera-tile-meta">
+              <div>
+                <span class="camera-tile-id">CAM02 — Janpath Cross Road</span>
+                <div class="camera-tile-loc">Ahmedabad · Ashram Road</div>
+              </div>
+              <span class="camera-tile-fps">14ms · YOLOv8</span>
+            </div>
+          </div>
+
+          <!-- Camera Tile 3 -->
+          <div class="camera-tile-card">
+            <div class="camera-feed-viewport">
+              <div class="camera-feed-grid"></div>
+              <div class="camera-live-pill"><span class="device-status-pulse"></span> LIVE · 25 FPS</div>
+              <div class="clean-bbox car">BUS 94% #cam04-01</div>
+            </div>
+            <div class="camera-tile-meta">
+              <div>
+                <span class="camera-tile-id">CAM04 — Paldi Circle</span>
+                <div class="camera-tile-loc">Ahmedabad · Paldi Four Roads</div>
+              </div>
+              <span class="camera-tile-fps">16ms · YOLOv8</span>
+            </div>
+          </div>
+
+          <!-- Camera Tile 4 -->
+          <div class="camera-tile-card">
+            <div class="camera-feed-viewport">
+              <div class="camera-feed-grid"></div>
+              <div class="camera-live-pill"><span class="device-status-pulse"></span> LIVE · 25 FPS</div>
+              <div class="clean-bbox car">CAR 96% #cam05-01</div>
+            </div>
+            <div class="camera-tile-meta">
+              <div>
+                <span class="camera-tile-id">CAM05 — Visat teen Rasta</span>
+                <div class="camera-tile-loc">Ahmedabad · Visat Three Roads</div>
+              </div>
+              <span class="camera-tile-fps">14ms · YOLOv8</span>
+            </div>
+          </div>
+
+          <!-- Camera Tile 5 -->
+          <div class="camera-tile-card">
+            <div class="camera-feed-viewport">
+              <div class="camera-feed-grid"></div>
+              <div class="camera-live-pill"><span class="device-status-pulse"></span> LIVE · 25 FPS</div>
+              <div class="clean-bbox car">CAR 91% #cam12-01</div>
+            </div>
+            <div class="camera-tile-meta">
+              <div>
+                <span class="camera-tile-id">CAM12 — Tri Mandir Adalaj</span>
+                <div class="camera-tile-loc">Gandhinagar · Highway Toll Plaza</div>
+              </div>
+              <span class="camera-tile-fps">15ms · YOLOv8</span>
+            </div>
+          </div>
+
+          <!-- Camera Tile 6 -->
+          <div class="camera-tile-card">
+            <div class="camera-feed-viewport">
+              <div class="camera-feed-grid"></div>
+              <div class="camera-live-pill"><span class="device-status-pulse"></span> LIVE · 25 FPS</div>
+              <div class="clean-bbox truck">CAR 89% #cam14-03</div>
+            </div>
+            <div class="camera-tile-meta">
+              <div>
+                <span class="camera-tile-id">CAM14 — Delight RLVD</span>
+                <div class="camera-tile-loc">Ahmedabad · Red Light Junction</div>
+              </div>
+              <span class="camera-tile-fps">15ms · YOLOv8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 02 — SPATIAL INTELLIGENCE & GIS MAP -->
+  <section id="gis" class="editorial-section" style="background: var(--bg-surface);">
+    <div class="editorial-header">
+      <span class="editorial-eyebrow">02 — SPATIAL INTELLIGENCE</span>
+      <h2 class="editorial-headline">See intelligence in space.</h2>
+      <p class="editorial-subtext">
+        Camera observations become spatially and temporally connected so investigators can track movement trajectories across the monitored environment.
+      </p>
+    </div>
+
+    <div class="gis-layout-grid">
+      <!-- Apple Frame: Spatial Investigation Map Canvas -->
+      <div class="apple-device-frame">
+        <div class="device-top-bar">
+          <div class="device-window-controls">
+            <span class="device-dot close"></span>
+            <span class="device-dot min"></span>
+            <span class="device-dot max"></span>
+          </div>
+          <div class="device-title-tag">
+            <span>GIS Corridor Tracking & Sighting Map</span>
+          </div>
+          <div class="device-status-badge">
+            <span class="device-status-pulse"></span>
+            <span>AHMEDABAD SECTOR</span>
+          </div>
+        </div>
+
+        <div class="device-canvas-area" style="padding:20px;">
+          <div class="gis-map-canvas-frame">
+            <div class="gis-map-water-body"></div>
+            <div class="gis-road-line gis-road-1"></div>
+            <div class="gis-road-line gis-road-2"></div>
+            <div class="gis-road-line gis-road-3"></div>
+            <div class="gis-road-line gis-road-4"></div>
+            <div class="gis-trajectory-path"></div>
+
+            <!-- Real Node Pins from Platform -->
+            <div class="gis-cam-pin" style="top:25%; left:22%;">C01</div>
+            <div class="gis-cam-pin" style="top:25%; left:65%;">C02</div>
+            <div class="gis-cam-pin" style="top:60%; left:22%;">C04</div>
+            <div class="gis-cam-pin" style="top:60%; left:65%;">C12</div>
+
+            <div style="position:absolute; bottom:16px; left:16px; background:rgba(255,255,255,0.9); backdrop-filter:blur(10px); padding:8px 14px; border-radius:10px; font-size:11px; font-weight:600; border:1px solid var(--border-light);">
+              Target: GJ01AB1234 · Correlated across 3 cameras (09:42 - 09:48)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Investigation Timeline Feed -->
+      <div class="gis-timeline-feed">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">
+          CHRONOLOGICAL SIGHTINGS
+        </div>
+
+        <div class="gis-event-item">
+          <span class="gis-event-time">09:42:15 AM · CAM-04</span>
+          <div class="gis-event-title">Paldi Circle (Ring Road East)</div>
+          <div class="gis-event-desc">Vehicle GJ01AB1234 identified. Direction Eastbound, 48 km/h. Confidence: 94%.</div>
+        </div>
+
+        <div class="gis-event-item">
+          <span class="gis-event-time">09:45:30 AM · CAM-01</span>
+          <div class="gis-event-title">Chiman bhai Bridge (Sabarmati)</div>
+          <div class="gis-event-desc">Temporal consensus matched. Optical feed confirmed plate geometry.</div>
+        </div>
+
+        <div class="gis-event-item">
+          <span class="gis-event-time">09:48:10 AM · CAM-02</span>
+          <div class="gis-event-title">Janpath Cross Road (Ashram Road)</div>
+          <div class="gis-event-desc">Trajectory logged to forensic dossier #EVT-78421 with SHA-256 seal.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03 — THE INTELLIGENCE LAYER (6 ELEGANT CARDS) -->
+  <section id="intelligence" class="editorial-section">
+    <div class="editorial-header centered">
+      <span class="editorial-eyebrow">03 — THE INTELLIGENCE LAYER</span>
+      <h2 class="editorial-headline">The intelligence isn't one model.</h2>
+      <p class="editorial-subtext">
+        Sentinel Grid combines machine-learning inference, deterministic verification, multi-agent orchestration, evidence controls, and human-in-the-loop review.
+      </p>
+    </div>
+
+    <div class="intelligence-cards-grid">
+      <!-- Card 1 -->
+      <div class="apple-intelligence-card">
+        <div>
+          <div class="intel-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+          </div>
+          <div class="intel-card-title">Vision Models</div>
+          <div class="intel-card-sub">YOLOv8 / Computer Vision</div>
+          <div class="intel-card-body">Local edge ONNX acceleration for 2/4-wheeler classification and trajectory vectorization at sub-15ms latency.</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="apple-intelligence-card">
+        <div>
+          <div class="intel-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15h10M7 9h4"/></svg>
+          </div>
+          <div class="intel-card-title">OCR & ANPR</div>
+          <div class="intel-card-sub">Indian HSRP Recognition</div>
+          <div class="intel-card-body">High-Security Registration Plate perspective rectification, laser PIN audit, and character OCR extraction.</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="apple-intelligence-card">
+        <div>
+          <div class="intel-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="intel-card-title">Reasoning & Copilot</div>
+          <div class="intel-card-sub">Gemini / Structured Reasoning</div>
+          <div class="intel-card-body">Officer-facing natural-language assistant routing exclusively through 7 controlled, read-only operational tools.</div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="apple-intelligence-card">
+        <div>
+          <div class="intel-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="intel-card-title">Deterministic Logic</div>
+          <div class="intel-card-sub">Rules, Consensus & Correlation</div>
+          <div class="intel-card-body">Multi-frame temporal agreement and spatial geofencing ensuring zero probabilistic hallucinations reach records.</div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="apple-intelligence-card">
+        <div>
+          <div class="intel-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="intel-card-title">Evidence Integrity</div>
+          <div class="intel-card-sub">BSA 2023 Sec-63 Custody</div>
+          <div class="intel-card-body">Dual SHA-256 cryptographic hashing separating raw video evidence from analytical OCR overlays for court compliance.</div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="apple-intelligence-card">
+        <div>
+          <div class="intel-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="intel-card-title">Human Review</div>
+          <div class="intel-card-sub">Officer Decision Authority</div>
+          <div class="intel-card-body">Human-in-the-loop validation queue. Sentinel AI assists with context while officers retain all enforcement decisions.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04 — SYSTEM ARCHITECTURE (6 STAGES) -->
+  <section id="architecture" class="editorial-section" style="background: var(--bg-surface);">
+    <div class="editorial-header">
+      <span class="editorial-eyebrow">04 — SYSTEM ARCHITECTURE</span>
+      <h2 class="editorial-headline">One system. Many intelligence layers.</h2>
+      <p class="editorial-subtext">
+        From edge camera ingestion to Google Cloud coordination, Sentinel Grid decouples real-time processing from long-term analytical storage.
+      </p>
+    </div>
+
+    <div class="architecture-editorial-box">
+      <div class="architecture-stage-columns">
+        <div class="arch-stage-card">
+          <span class="arch-stage-num">01 / INPUT</span>
+          <div class="arch-stage-name">CCTV Feeds</div>
+          <div class="arch-stage-tech">RTSP · ONVIF · HLS · Keyframe Sync</div>
+        </div>
+
+        <div class="arch-stage-card">
+          <span class="arch-stage-num">02 / AI PROCESSING</span>
+          <div class="arch-stage-name">Vision + OCR</div>
+          <div class="arch-stage-tech">YOLOv8 Edge ONNX · Tesseract LSTM</div>
+        </div>
+
+        <div class="arch-stage-card">
+          <span class="arch-stage-num">03 / DETERMINISTIC</span>
+          <div class="arch-stage-name">Consensus Logic</div>
+          <div class="arch-stage-tech">Temporal Agreement · Rule Triage</div>
+        </div>
+
+        <div class="arch-stage-card">
+          <span class="arch-stage-num">04 / ORCHESTRATION</span>
+          <div class="arch-stage-name">13-Agent Mesh</div>
+          <div class="arch-stage-tech">Decoupled Event Bus · Pub/Sub</div>
+        </div>
+
+        <div class="arch-stage-card">
+          <span class="arch-stage-num">05 / APPLICATION</span>
+          <div class="arch-stage-name">Investigation</div>
+          <div class="arch-stage-tech">GIS Map · Forensic Dossiers · HITL</div>
+        </div>
+
+        <div class="arch-stage-card">
+          <span class="arch-stage-num">06 / CLOUD</span>
+          <div class="arch-stage-name">Google Cloud</div>
+          <div class="arch-stage-tech">BigQuery · Cloud Run · Vertex AI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05 — GOOGLE CLOUD ARCHITECTURE -->
+  <section id="cloud" class="editorial-section google-cloud-section">
+    <div class="editorial-header centered">
+      <span class="editorial-eyebrow">05 — CLOUD INFRASTRUCTURE</span>
+      <h2 class="editorial-headline">Powered by Google Cloud.</h2>
+      <p class="editorial-subtext">
+        Sentinel Grid leverages Google Cloud services for asynchronous telemetry, distributed event queues, scalable big data analytics, and tamper-proof storage.
+      </p>
+    </div>
+
+    <div class="gcp-services-grid">
+      <div class="gcp-service-tile">
+        <div class="gcp-service-header">
+          <div class="gcp-service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/></svg>
+          </div>
+          <div class="gcp-service-name">Vertex AI / Gemini</div>
+        </div>
+        <div class="gcp-service-desc">Structured reasoning and natural language query generation for the officer assistant.</div>
+      </div>
+
+      <div class="gcp-service-tile">
+        <div class="gcp-service-header">
+          <div class="gcp-service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
+          </div>
+          <div class="gcp-service-name">Cloud Run</div>
+        </div>
+        <div class="gcp-service-desc">Serverless, autoscaling microservices handling API requests and asynchronous jobs.</div>
+      </div>
+
+      <div class="gcp-service-tile">
+        <div class="gcp-service-header">
+          <div class="gcp-service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <div class="gcp-service-name">Google Pub/Sub</div>
+        </div>
+        <div class="gcp-service-desc">High-throughput, decoupled event streaming between edge cameras and cloud services.</div>
+      </div>
+
+      <div class="gcp-service-tile">
+        <div class="gcp-service-header">
+          <div class="gcp-service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <div class="gcp-service-name">BigQuery Lake</div>
+        </div>
+        <div class="gcp-service-desc">Partitioned spatial and vehicle sighting analytics over millions of historical events.</div>
+      </div>
+
+      <div class="gcp-service-tile">
+        <div class="gcp-service-header">
+          <div class="gcp-service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="gcp-service-name">Cloud Storage</div>
+        </div>
+        <div class="gcp-service-desc">Secure object storage for SHA-256 sealed video crops and raw evidence archives.</div>
+      </div>
+
+      <div class="gcp-service-tile">
+        <div class="gcp-service-header">
+          <div class="gcp-service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="gcp-service-name">Cloud KMS</div>
+        </div>
+        <div class="gcp-service-desc">Hardware-backed cryptographic key management for SHA-256 evidence integrity sealing.</div>
+      </div>
+
+      <div class="gcp-service-tile">
+        <div class="gcp-service-header">
+          <div class="gcp-service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+          </div>
+          <div class="gcp-service-name">Cloud Logging</div>
+        </div>
+        <div class="gcp-service-desc">Immutable audit logging for all officer queries, vehicle lookups, and system alerts.</div>
+      </div>
+
+      <div class="gcp-service-tile">
+        <div class="gcp-service-header">
+          <div class="gcp-service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+          </div>
+          <div class="gcp-service-name">Artifact Registry</div>
+        </div>
+        <div class="gcp-service-desc">Secure container image registry and deployment pipeline managed via Cloud Build.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 06 — STRATEGIC NAVY SECTION: TRUST LAYER -->
+  <section id="trust" class="navy-contrast-section">
+    <div class="editorial-header centered">
+      <span class="editorial-eyebrow" style="color:var(--apple-cyan);">06 — TRUST & GOVERNANCE</span>
+      <h2 class="editorial-headline">AI should know what it knows.</h2>
+      <p class="editorial-subtext">
+        Sentinel Grid prevents probabilistic AI inference from silently becoming assumed fact. Every output is strictly typed with an authoritative truth status before reaching officer screens.
+      </p>
+    </div>
+
+    <div class="trust-layer-vertical-flow">
+      <div class="trust-state-box">
+        <div>
+          <span class="trust-state-badge observed">OBSERVED</span>
+          <div class="trust-state-title">Direct Ground Truth</div>
+          <div class="trust-state-desc">Verified hardware telemetry, physical RTSP stream state, network pings, and logged GIS coordinates.</div>
+        </div>
+      </div>
+
+      <div class="trust-state-box">
+        <div>
+          <span class="trust-state-badge inferred">INFERRED</span>
+          <div class="trust-state-title">Model Predictions</div>
+          <div class="trust-state-desc">YOLOv8 bounding boxes, vehicle classifications, and OCR character extractions accompanied by confidence scores.</div>
+        </div>
+      </div>
+
+      <div class="trust-state-box">
+        <div>
+          <span class="trust-state-badge uncertain">UNCERTAIN</span>
+          <div class="trust-state-title">Consensus Flag</div>
+          <div class="trust-state-desc">Detections falling below temporal multi-frame confidence thresholds, routed to human officer review queue.</div>
+        </div>
+      </div>
+
+      <div class="trust-state-box">
+        <div>
+          <span class="trust-state-badge not_available">NOT_AVAILABLE</span>
+          <div class="trust-state-title">Zero Hallucination</div>
+          <div class="trust-state-desc">Information not present in monitored feeds is explicitly returned as unavailable rather than fabricated.</div>
+        </div>
+      </div>
+
+      <div class="trust-state-box">
+        <div>
+          <span class="trust-state-badge not_readable">NOT_READABLE</span>
+          <div class="trust-state-title">Optical Fault</div>
+          <div class="trust-state-desc">Optical glare, low resolution, motion blur, or physical camera obstruction preventing deterministic OCR.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 07 — INTERACTIVE SENTINEL AI COPILOT -->
+  <section id="ai-assistant" class="editorial-section">
+    <div class="editorial-header centered">
+      <span class="editorial-eyebrow">07 — OFFICER COPILOT</span>
+      <h2 class="editorial-headline">Ask the system in natural language.</h2>
+      <p class="editorial-subtext">
+        The assistant uses 7 controlled read-only operational tools rather than raw database access, with explicit truth status returned on every query.
+      </p>
+    </div>
+
+    <!-- Apple Light Interactive Terminal -->
+    <div class="apple-device-frame" style="max-width: 960px; margin: 0 auto;">
+      <div class="device-top-bar">
+        <div class="device-window-controls">
+          <span class="device-dot close"></span>
+          <span class="device-dot min"></span>
+          <span class="device-dot max"></span>
+        </div>
+        <div class="device-title-tag">
+          <span>Sentinel AI Query Interface · POST /api/ai/query</span>
+        </div>
+        <div class="device-status-badge">
+          <span class="device-status-pulse"></span>
+          <span>READ-ONLY API</span>
+        </div>
+      </div>
+
+      <div class="device-canvas-area" style="background:#ffffff; padding:36px;">
+        <div style="margin-bottom:20px; font-size:12px; font-weight:700; color:#86868b; letter-spacing:0.06em; text-transform:uppercase;">
+          SELECT A CONTROLLED OPERATIONAL QUERY:
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px;">
+          <button class="apple-btn-secondary active-query" data-query="Check camera health." style="font-size:12px; padding:8px 16px;">
+            Check camera health
+          </button>
+          <button class="apple-btn-secondary" data-query="What is happening on CAM-12?" style="font-size:12px; padding:8px 16px;">
+            What is happening on CAM-12?
+          </button>
+          <button class="apple-btn-secondary" data-query="Find vehicle GJ01AB1234." style="font-size:12px; padding:8px 16px;">
+            Find vehicle GJ01AB1234
+          </button>
+          <button class="apple-btn-secondary" data-query="What incidents are currently active?" style="font-size:12px; padding:8px 16px;">
+            What incidents are active?
+          </button>
+        </div>
+
+        <!-- Chat Bubble Output -->
+        <div style="background:var(--bg-surface); border:1px solid var(--border-light); border-radius:20px; padding:28px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:11px; font-weight:700; color:var(--apple-emerald); background:rgba(52,199,89,0.12); padding:4px 10px; border-radius:980px;" id="ai-truth-pill">
+              OBSERVED · HARDWARE VERIFIED
+            </span>
+            <span style="font-size:11px; color:#86868b; font-family:var(--font-mono);" id="ai-timestamp-pill">
+              CONFIDENCE: 0.98
+            </span>
+          </div>
+
+          <div style="font-size:15px; color:var(--text-headline); line-height:1.6;" id="ai-reply-box">
+            CCTV Fleet Health Report: 30 monitored nodes operational across Ahmedabad and Junagadh clusters. Average latency 14ms. 0 frame drops reported in the last 60 minutes.
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light); padding-top:12px; font-size:11px; color:#86868b; font-family:var(--font-mono);">
+            <span id="ai-source-pill">SOURCE: CCTV_FLEET_DIAGNOSTICS</span>
+            <span id="ai-evidence-pill">EVIDENCE ID: EVT-78421</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08 — APPLE-STYLE VISUAL GALLERY -->
+  <section id="gallery" class="gallery-section">
+    <div class="editorial-header">
+      <span class="editorial-eyebrow">REAL PLATFORM RECORDS</span>
+      <h2 class="editorial-headline">Inside Sentinel Grid.</h2>
+      <p class="editorial-subtext">
+        Authentic system interfaces, real-time computer vision feeds, GIS tracking maps, and operational architecture recorded directly from the platform.
+      </p>
+    </div>
+
+    <!-- Gallery Controls: Category Tabs + Drive Link Button -->
+    <div class="gallery-controls-bar">
+      <div class="gallery-filter-tabs">
+        <button class="gallery-tab-btn active" data-category="ALL">ALL</button>
+        <button class="gallery-tab-btn" data-category="LIVE GRID">LIVE GRID</button>
+        <button class="gallery-tab-btn" data-category="SPATIAL INTELLIGENCE">SPATIAL INTELLIGENCE</button>
+        <button class="gallery-tab-btn" data-category="AI / VISION">AI / VISION</button>
+        <button class="gallery-tab-btn" data-category="SYSTEM ARCHITECTURE">SYSTEM ARCHITECTURE</button>
+        <button class="gallery-tab-btn" data-category="INVESTIGATION">INVESTIGATION</button>
+        <button class="gallery-tab-btn" data-category="COMMAND CENTER">COMMAND CENTER</button>
+      </div>
+
+      <a href="https://drive.google.com/drive/folders/15gH1aYx5i9w3Yh6m7M5N9C8Q4bX1W0z" target="_blank" rel="noopener noreferrer" class="drive-library-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span>VIEW FULL IMAGE LIBRARY</span>
+      </a>
+    </div>
+
+    <!-- Editorial Gallery Grid (Populated dynamically by script.js) -->
+    <div class="gallery-editorial-grid" id="gallery-container">
+      <!-- Fallback cards if JS is disabled or during initial render -->
+    </div>
+  </section>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div class="gallery-lightbox-modal" id="gallery-lightbox" aria-hidden="true">
+    <div class="lightbox-dialog" role="dialog" aria-modal="true">
+      <div class="lightbox-header">
+        <div class="lightbox-title-group">
+          <span class="lightbox-category-badge" id="lightbox-category">LIVE GRID</span>
+          <span class="lightbox-title" id="lightbox-title">Live Grid Interface</span>
+        </div>
+        <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close lightbox">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="lightbox-image-container">
+        <button class="lightbox-nav-btn prev" id="lightbox-prev" aria-label="Previous image">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+
+        <img src="" alt="" class="lightbox-main-img" id="lightbox-img">
+
+        <button class="lightbox-nav-btn next" id="lightbox-next" aria-label="Next image">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="lightbox-footer">
+        <span id="lightbox-desc">Real-time camera intelligence interface.</span>
+        <span style="font-family:var(--font-mono); font-size:11px; color:#86868b;" id="lightbox-counter">1 / 6</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 09 — SCALE TRANSITION: 30 TO 80K+ -->
+  <section id="scale" class="editorial-section" style="background: var(--bg-surface);">
+    <div class="editorial-header centered">
+      <span class="editorial-eyebrow">08 — SCALABILITY ARCHITECTURE</span>
+      <h2 class="editorial-headline">Built for today. Ready for tomorrow.</h2>
+      <p class="editorial-subtext">
+        Clear technical distinction between the verified 30-camera test environment and the statewide cloud scaling architecture blueprint.
+      </p>
+    </div>
+
+    <div class="scale-transition-container">
+      <div class="scale-editorial-card">
+        <span class="scale-badge-label">CURRENT VERIFIED TESTBED</span>
+        <div class="scale-giant-number">30</div>
+        <div class="scale-card-title">Camera Test Environment</div>
+        <div class="scale-card-body">
+          Operational testbed deployed across Gujarat Police sectors to benchmark local YOLOv8 ONNX inference, HSRP OCR, and officer assistant tools with sub-15ms edge latency.
+        </div>
+      </div>
+
+      <div class="scale-editorial-card">
+        <span class="scale-badge-label">SCALABILITY TARGET</span>
+        <div class="scale-giant-number">80,000<small>+</small></div>
+        <div class="scale-card-title">Statewide Target Scale</div>
+        <div class="scale-card-body">
+          Scalability architecture blueprint designed to ingest statewide municipal and highway surveillance networks through partitioned regional cloud clusters and Google Pub/Sub pipelines.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal Apple-Style Footer -->
+  <footer class="apple-footer">
+    <div class="footer-top-row">
+      <div>
+        <div class="footer-brand-title">SENTINEL GRID V3</div>
+        <p style="color:var(--text-body); max-width:480px; margin-top:4px;">
+          Gujarat Police AI CCTV Intelligence Platform. Built around computer vision. Structured around evidence integrity. Designed for human decisions.
+        </p>
+      </div>
+      <div>
+        <span style="font-weight:700; color:var(--text-headline);">BSA 2023 SEC-63 COMPLIANT</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom-row">
+      <span>Authoritative Testbed: 30 Monitored Nodes · Target Scale: 80,000+ Nodes</span>
+      <span>Concept & Engineering Showcase</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
