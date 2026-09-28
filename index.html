@@ -756,6 +756,62 @@
     </div>
   </section>
 
+  <!-- Upload Screenshot Modal -->
+  <div class="gallery-upload-modal" id="gallery-upload-modal" aria-hidden="true">
+    <div class="upload-dialog" role="dialog" aria-modal="true">
+      <div class="lightbox-header">
+        <div class="lightbox-title-group">
+          <span class="lightbox-category-badge">PERSISTENT UPLOAD</span>
+          <span class="lightbox-title">Add Screenshot to Gallery</span>
+        </div>
+        <button class="lightbox-close-btn" id="upload-modal-close" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="upload-dialog-body">
+        <div class="upload-preview-area" id="upload-preview-container">
+          <img id="upload-preview-img" src="" alt="Preview" style="display:none; max-height:180px; border-radius:12px; object-fit:contain;">
+          <div id="upload-preview-placeholder" style="display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--text-muted);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span style="font-size:12px;">Supported: PNG, JPG, JPEG, WEBP</span>
+          </div>
+        </div>
+
+        <div class="upload-form-fields">
+          <div class="upload-field-group">
+            <label for="upload-title-input">Screenshot Title</label>
+            <input type="text" id="upload-title-input" class="apple-input" placeholder="e.g. CAM-01 Sabarmati River Corridor">
+          </div>
+
+          <div class="upload-field-group">
+            <label for="upload-category-select">Gallery Category</label>
+            <select id="upload-category-select" class="apple-input">
+              <option value="LIVE GRID">LIVE GRID</option>
+              <option value="SPATIAL INTELLIGENCE">SPATIAL INTELLIGENCE</option>
+              <option value="AI / VISION">AI / VISION</option>
+              <option value="INVESTIGATION">INVESTIGATION</option>
+              <option value="SYSTEM ARCHITECTURE">SYSTEM ARCHITECTURE</option>
+              <option value="COMMAND CENTER">COMMAND CENTER</option>
+            </select>
+          </div>
+
+          <div class="upload-field-group">
+            <label for="upload-note-input">Technical Note / Hardware Spec</label>
+            <input type="text" id="upload-note-input" class="apple-input" placeholder="e.g. 1080p RTSP Stream · YOLOv8 55.6 FPS">
+          </div>
+        </div>
+      </div>
+
+      <div class="lightbox-footer" style="justify-content:flex-end; gap:12px;">
+        <button class="apple-btn-secondary" id="upload-cancel-btn" style="padding:8px 18px; font-size:13px;">Cancel</button>
+        <button class="apple-btn-primary" id="upload-submit-btn" style="padding:8px 22px; font-size:13px;">
+          <span id="upload-btn-text">Save to Gallery</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Fullscreen Lightbox Modal -->
   <div class="gallery-lightbox-modal" id="gallery-lightbox" aria-hidden="true">
     <div class="lightbox-dialog" role="dialog" aria-modal="true">

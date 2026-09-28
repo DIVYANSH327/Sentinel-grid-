@@ -1378,7 +1378,8 @@ a {
 }
 
 /* Lightbox Modal */
-.gallery-lightbox-modal {
+.gallery-lightbox-modal,
+.gallery-upload-modal {
   position: fixed;
   inset: 0;
   z-index: 2000;
@@ -1394,12 +1395,14 @@ a {
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gallery-lightbox-modal.active {
+.gallery-lightbox-modal.active,
+.gallery-upload-modal.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-.lightbox-dialog {
+.lightbox-dialog,
+.upload-dialog {
   background: #ffffff;
   border-radius: 28px;
   overflow: hidden;
@@ -1414,8 +1417,92 @@ a {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gallery-lightbox-modal.active .lightbox-dialog {
+.upload-dialog {
+  max-width: 620px;
+}
+
+.gallery-lightbox-modal.active .lightbox-dialog,
+.gallery-upload-modal.active .upload-dialog {
   transform: scale(1);
+}
+
+.upload-dialog-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #ffffff;
+}
+
+.upload-preview-area {
+  width: 100%;
+  min-height: 140px;
+  background: var(--bg-surface);
+  border: 2px dashed var(--border-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+}
+
+.upload-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.upload-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.upload-field-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-headline);
+  letter-spacing: 0.02em;
+}
+
+.apple-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  color: var(--text-headline);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.apple-input:focus {
+  background: #ffffff;
+  border-color: var(--apple-blue);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+}
+
+.card-delete-btn {
+  background: rgba(255, 59, 48, 0.1);
+  color: var(--apple-red);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  padding: 4px 10px;
+  border-radius: 980px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-delete-btn:hover {
+  background: var(--apple-red);
+  color: #ffffff;
 }
 
 .lightbox-header {
